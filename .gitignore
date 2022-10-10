@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# application data
+temp.png
+temp.svg
+
+# eric project file
+spaCyWorkbench.epj
