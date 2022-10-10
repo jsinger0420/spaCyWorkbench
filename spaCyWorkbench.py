@@ -13,6 +13,7 @@ spaCyWorkbench is distributed in the hope that it will be useful,
 You should have received a copy of the GNU General Public License
     along with NLPSpacy. If not, see <https://www.gnu.org/licenses/>.
 '''
+
 import json
 import datetime
 
@@ -369,8 +370,6 @@ class spaCyWorkbenchUI(ttk.Frame):
             self.createDoc()
             # update sentences grid
             self.displaySentences()
-            
-        return
 
     def loadSpacyModel(self):
         'load the SpaCy Model'
@@ -402,14 +401,14 @@ class spaCyWorkbenchUI(ttk.Frame):
         try:
             # get the selected text
             sel_text = self.textArea.selection_get()
-        except:
+        except Exception as e:
             # if no selected text just get all of it
             sel_text = self.textArea.get('1.0', tk.END)
         
         try:
             # create the document object
             self.doc = self.NLP(sel_text)
-        except:
+        except Exception as e:
             self.logMsg("Error Creating Doc Object - {}".format(e), display=True)
         finally:
             self.app.config( cursor="" )
